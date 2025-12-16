@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lệnh Công Tác - Phụ Lục B</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; margin: 20px; font-size: 12pt; }
+        .container { max-width: 900px; margin: auto; border: 1px solid #000; padding: 20px; }
+        h2 { text-align: center; font-size: 16pt; margin: 5px 0; }
+        .header, .section-title { text-align: center; margin-bottom: 15px; }
+        .unit-name { text-align: left; margin-bottom: 5px; }
+        .section { margin-bottom: 20px; border: 1px solid #ccc; padding: 10px; }
+        label { display: block; margin-top: 5px; font-weight: bold; }
+        input[type="text"], input[type="number"], textarea { width: 100%; padding: 5px; margin-top: 2px; box-sizing: border-box; border: 1px solid #aaa; }
+        textarea { height: 60px; }
+        .signature-area { display: flex; justify-content: space-between; margin-top: 30px; text-align: center; }
+        .signature-box { width: 45%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #000; padding: 5px; text-align: center; }
+        th { background-color: #f2f2f2; }
+        .small-input { width: 100px; display: inline-block; }
+        .date-input { width: 50px; text-align: center; }
+        .row-flex { display: flex; align-items: center; }
+        .row-flex label { margin-right: 10px; font-weight: normal; }
+        .button-group { text-align: center; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="unit-name">
+            TÊN ĐƠN VỊ CẤP LỆNH: <input type="text" id="unitNameTop" name="unitNameTop" style="width: 300px; display: inline-block;">
+        </div>
+        <div class="header">
+            <h2>LỆNH CÔNG TÁC</h2>
+            <p>Số: <input type="text" id="commandNumberTop" name="commandNumberTop" class="small-input"></p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">A. Phần lưu giữ của Người ra lệnh [cite: 1]</h3>
+            <label for="orderContentA">Nội dung lệnh:</label>
+            <ol>
+                <li>
+                    <label>Người chỉ huy trực tiếp (Người thi hành lệnh):</label>
+                    <input type="text" id="commanderA" name="commanderA">
+                    <div class="row-flex">
+                        <label>Bậc ATĐ:</label>
+                        <input type="number" id="safetyLevelA" name="safetyLevelA" min="1" max="5" class="small-input" style="width: 50px;">/5
+                    </div>
+                </li>
+                <li>
+                    <label>Nhân viên đơn vị công tác, gồm:</label>
+                    <input type="number" id="staffCountA" name="staffCountA" class="small-input" style="width: 50px; display: inline-block;"> người.
+                    <label>Thuộc (Công ty, Phân xưởng v.v):</label>
+                    <input type="text" id="unitA" name="unitA">
+                    <label>Danh sách nhân viên đơn vị công tác và thay đổi người (nếu có):</label>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TT</th>
+                                <th>Họ, tên</th>
+                                <th>Bậc ATĐ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staffListA">
+                            <tr><td>1</td><td><input type="text" name="staffNameA1"></td><td><input type="number" name="staffSafetyA1" min="1" max="5" style="width: 50px;">/5</td></tr>
+                            </tbody>
+                    </table>
+                </li>
+                <li><label>Địa điểm (hoặc thiết bị) tiến hành công tác:</label><input type="text" id="locationA" name="locationA"></li>
+                <li><label>Nội dung công tác:</label><textarea id="contentA" name="contentA"></textarea></li>
+                <li><label>Điều kiện về an toàn điện để tiến hành công việc:</label><textarea id="safetyConditionsA" name="safetyConditionsA"></textarea></li>
+                <li>
+                    <label>Thời gian bắt đầu làm việc từ:</label>
+                    <div class="row-flex">
+                        <label>Giờ:</label><input type="number" id="startHourA" name="startHourA" class="date-input">
+                        <label>Phút:</label><input type="number" id="startMinuteA" name="startMinuteA" class="date-input">
+                        <label>Ngày:</label><input type="number" id="startDayA" name="startDayA" class="date-input">/
+                        <input type="number" id="startMonthA" name="startMonthA" class="date-input">/
+                        <input type="number" id="startYearA" name="startYearA" class="date-input">
+                    </div>
+                </li>
+            </ol>
+            <div class="signature-area">
+                <div class="signature-box">
+                    <label>Người ra lệnh công tác</label>
+                    <p>(ký, ghi họ, tên):</p>
+                    <input type="text" id="orderSignerA" name="orderSignerA">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">B. Phần giao cho Người chỉ huy trực tiếp (Người thi hành lệnh) [cite: 3]</h3>
+            <div class="unit-name">
+                TÊN ĐƠN VỊ CẤP LỆNH: <input type="text" id="unitNameBottom" name="unitNameBottom" style="width: 300px; display: inline-block;">
+            </div>
+            <div class="header">
+                <h2>LỆNH CÔNG TÁC</h2>
+                <p>Số: <input type="text" id="commandNumberBottom" name="commandNumberBottom" class="small-input"></p>
+            </div>
+            <ol>
+                <li>
+                    <label>Nội dung lệnh:</label>
+                    <ol type="decimal">
+                        <li>
+                            <label>Người chỉ huy trực tiếp (Người thi hành lệnh):</label>
+                            <input type="text" id="commanderB" name="commanderB">
+                            <div class="row-flex">
+                                <label>Bậc ATĐ:</label>
+                                <input type="number" id="safetyLevelB" name="safetyLevelB" min="1" max="5" class="small-input" style="width: 50px;">/5
+                            </div>
+                        </li>
+                        <li>
+                            <label>Nhân viên đơn vị công tác, gồm:</label>
+                            <input type="number" id="staffCountB" name="staffCountB" class="small-input" style="width: 50px; display: inline-block;"> người.
+                            <label>Thuộc (Công ty, Phân xưởng v.v):</label>
+                            <input type="text" id="unitB" name="unitB">
+                            <label>Danh sách nhân viên đơn vị công tác và thay đổi người (nếu có):</label>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>TT</th>
+                                        <th>Họ, tên</th>
+                                        <th>Bậc ATĐ</th>
+                                        <th colspan="2">Đến làm việc</th>
+                                        <th colspan="2">Rút khỏi</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th><th></th><th></th>
+                                        <th>Thời gian (giờ, ngày, tháng)</th><th>Ký tên</th>
+                                        <th>Thời gian (giờ, ngày, tháng)</th><th>Ký tên</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="staffListB">
+                                    <tr>
+                                        <td>1</td>
+                                        <td><input type="text" name="staffNameB1" value="Ông A"></td>
+                                        <td><input type="number" name="staffSafetyB1" min="1" max="5" style="width: 50px;">/5</td>
+                                        <td><input type="text" name="arrivalB1" value="7h30"></td>
+                                        <td><input type="text" name="signArrivalB1" value="A" style="width: 30px;"></td>
+                                        <td><input type="text" name="departureB1" value="9h00"></td>
+                                        <td><input type="text" name="signDepartureB1" value="A" style="width: 30px;"></td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </li>
+                        <li><label>Địa điểm (hoặc thiết bị) tiến hành công việc:</label><textarea id="locationB" name="locationB"></textarea></li>
+                        <li><label>Nội dung công việc:</label><textarea id="contentB" name="contentB"></textarea></li>
+                        <li><label>Điều kiện về an toàn điện để tiến hành công việc:</label><textarea id="safetyConditionsB" name="safetyConditionsB"></textarea></li>
+                        <li>
+                            <label>Thời gian bắt đầu làm việc theo kế hoạch, từ:</label>
+                            <div class="row-flex">
+                                <label>Giờ:</label><input type="number" id="startHourB" name="startHourB" class="date-input">
+                                <label>Phút:</label><input type="number" id="startMinuteB" name="startMinuteB" class="date-input">
+                                <label>Ngày:</label><input type="number" id="startDayB" name="startDayB" class="date-input">/
+                                <input type="number" id="startMonthB" name="startMonthB" class="date-input">/
+                                <input type="number" id="startYearB" name="startYearB" class="date-input">
+                            </div>
+                        </li>
+                    </ol>
+                    <div class="signature-area">
+                        <div class="signature-box">
+                            <label>Người ra Lệnh công tác</label>
+                            <p>(ký, ghi họ, tên):</p>
+                            <input type="text" id="orderSignerB" name="orderSignerB">
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <label>Thực hiện lệnh:</label>
+                    <ol type="decimal" start="1">
+                        <li>
+                            <label>Người chỉ huy trực tiếp (Người thi hành lệnh):</label>
+                            <input type="text" id="commanderExecution" name="commanderExecution">
+                            <div class="row-flex">
+                                <label>Bậc ATĐ:</label>
+                                <input type="number" id="safetyLevelExecution" name="safetyLevelExecution" min="1" max="5" class="small-input" style="width: 50px;">/5
+                            </div>
+                        </li>
+                        <li>
+                            <label>Người giám sát an toàn điện (ký, ghi họ, tên [nếu có]):</label>
+                            <input type="text" id="safetySupervisor" name="safetySupervisor">
+                            <label>thuộc đơn vị (ghi tên đơn vị cử Người giám sát an toàn điện):</label>
+                            <input type="text" id="supervisorUnit" name="supervisorUnit">
+                        </li>
+                        <li>
+                            <label>Trình tự công việc và các điều kiện an toàn từ lúc bắt đầu đến lúc kết thúc công việc:</label>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>TT</th>
+                                        <th>Trình tự công việc</th>
+                                        <th>Các điều kiện an toàn</th>
+                                        <th colspan="2">Thời gian</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th><th></th><th></th>
+                                        <th>Bắt đầu</th><th>Kết thúc</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="workSequence">
+                                    <tr>
+                                        <td>1</td>
+                                        <td><input type="text" name="workStep1"></td>
+                                        <td><input type="text" name="safetyCondition1"></td>
+                                        <td><input type="text" name="startTime1"></td>
+                                        <td><input type="text" name="endTime1"></td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </li>
+                    </ol>
+                </li>
+
+                <li>
+                    <label>Kết thúc công tác:</label>
+                    <ol type="decimal" start="1">
+                        <li>
+                            <label>Đơn vị công tác kết thúc, làm xong công việc lúc:</label>
+                            <div class="row-flex">
+                                <label>Giờ:</label><input type="number" id="finishHour" name="finishHour" class="date-input">
+                                <label>Phút:</label><input type="number" id="finishMinute" name="finishMinute" class="date-input">
+                                <label>Ngày:</label><input type="number" id="finishDay" name="finishDay" class="date-input">/
+                                <input type="number" id="finishMonth" name="finishMonth" class="date-input">/
+                                <input type="number" id="finishYear" name="finishYear" class="date-input">
+                            </div>
+                        </li>
+                        <li>
+                            <label>Người chỉ huy trực tiếp (Người thi hành lệnh) đã báo cho ông (bà):</label>
+                            <input type="text" id="reportedTo" name="reportedTo">
+                        </li>
+                        <li>
+                            <label>Chức danh Người ra lệnh:</label>
+                            <input type="text" id="orderSignerTitle" name="orderSignerTitle">
+                        </li>
+                    </ol>
+                    <div class="signature-area">
+                        <div class="signature-box">
+                            <label>Người chỉ huy trực tiếp (Người thi hành lệnh)</label>
+                            <p>(ký và ghi họ, tên):</p>
+                            <input type="text" id="commanderSigner" name="commanderSigner">
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px;">
+                        Đã kiểm tra hoàn thành Lệnh, ngày: <input type="number" id="checkDay" name="checkDay" class="date-input">/
+                        <input type="number" id="checkMonth" name="checkMonth" class="date-input">/
+                        <input type="number" id="checkYear" name="checkYear" class="date-input">
+                    </p>
+                    <div class="signature-area">
+                        <div class="signature-box">
+                            <label>Người ra lệnh công tác</label>
+                            <p>(ký và ghi họ, tên):</p>
+                            <input type="text" id="orderFinalSigner" name="orderFinalSigner">
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="button-group">
+            <button onclick="saveToFirebase()">Lưu Lệnh Công Tác</button>
+            <button onclick="loadFromFirebase()">Xem Lại Lệnh Đã Lưu</button>
+        </div>
+    </div>
+    
+    <script>
+        // *** LƯU Ý: PHẦN JAVASCRIPT NÀY LÀ MẪU. BẠN CẦN THÊM CÁC THƯ VIỆN VÀ CẤU HÌNH FIREBASE THỰC TẾ ***
+        
+        // Ví dụ về hàm lưu trữ (CẦN TÍCH HỢP FIREBASE SDK)
+        function saveToFirebase() {
+            // Lấy tất cả dữ liệu từ các trường input
+            const formData = {
+                unitNameTop: document.getElementById('unitNameTop').value,
+                // ... (Thêm các trường khác)
+            };
+
+            console.log("Dữ liệu cần lưu:", formData);
+            alert("Chức năng Lưu vào Firebase cần được lập trình JavaScript và tích hợp Firebase SDK.");
+            
+            // Ví dụ cấu trúc Firebase (cần được thực hiện bằng thư viện Firebase)
+            /*
+            firebase.database().ref('lenh_cong_tac/' + Date.now()).set(formData)
+                .then(() => alert("Lưu thành công!"))
+                .catch(error => alert("Lưu thất bại: " + error.message));
+            */
+        }
+
+        // Ví dụ về hàm tải lại (CẦN TÍCH HỢP FIREBASE SDK)
+        function loadFromFirebase() {
+            alert("Chức năng Xem lại cần được lập trình JavaScript để kết nối với Firebase và hiển thị dữ liệu.");
+            
+            // Ví dụ cấu trúc Firebase (cần được thực hiện bằng thư viện Firebase)
+            /*
+            firebase.database().ref('lenh_cong_tac').once('value', (snapshot) => {
+                // Xử lý dữ liệu và hiển thị lên giao diện
+                console.log(snapshot.val());
+            });
+            */
+        }
+    </script>
+</body>
+</html>
